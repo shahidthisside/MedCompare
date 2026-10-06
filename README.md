@@ -6,15 +6,16 @@
 
 Search once, see every pharmacy's price side by side, compare fairly per tablet, and find cheaper brands with the same composition.
 
-### [🌐 Live website: mymedcompare.vercel.app](https://mymedcompare.vercel.app)
+<p><a href="https://mymedcompare.vercel.app"><img src="https://img.shields.io/badge/Open_live_website-1570ef?style=for-the-badge&logo=vercel&logoColor=white" alt="Open live website" height="34"></a></p>
 
-![Next.js](https://img.shields.io/badge/Next.js-16-000?logo=nextdotjs)
-![React](https://img.shields.io/badge/React-19-149eca?logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-6-3178c6?logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?logo=tailwindcss&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-87%20passing-2ea44f)
-![License](https://img.shields.io/badge/license-All%20rights%20reserved-red)
-[![Website](https://img.shields.io/badge/website-mymedcompare.vercel.app-1570ef?logo=vercel)](https://mymedcompare.vercel.app)
+<p>
+<img src="https://img.shields.io/badge/Next.js_16-57606a?style=flat-square&logo=nextdotjs&logoColor=white" alt="Next.js 16">
+<img src="https://img.shields.io/badge/React_19-149eca?style=flat-square&logo=react&logoColor=white" alt="React 19">
+<img src="https://img.shields.io/badge/TypeScript-3178c6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript">
+<img src="https://img.shields.io/badge/Tailwind_CSS_4-0ea5e9?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS 4">
+<img src="https://img.shields.io/badge/tests-87_passing-2ea44f?style=flat-square" alt="87 tests passing">
+<img src="https://img.shields.io/badge/license-all_rights_reserved-c62828?style=flat-square" alt="License: all rights reserved">
+</p>
 
 ![MedCompare home page](docs/screenshots/home.png)
 
