@@ -7,9 +7,11 @@ import { ADAPTERS, oneMgCity } from '@/lib/sources/adapters';
 import type { SourceId, SourceResult } from '@/lib/types';
 
 export const dynamic = 'force-dynamic';
+export const maxDuration = 20;
 
 const CACHE_TTL_MS = 10 * 60_000; // prices are re-fetched at most every 10 min per (source, query, location)
 const TIMEOUT_MS = 8_000;
+const RETRY_TIMEOUT_MS = 5_000;
 const cache = new TtlCache<SourceResult>(CACHE_TTL_MS);
 const flight = singleFlight<SourceResult>();
 const limiter = new RateLimiter(120, 60_000); // per IP: 120 source-requests/min (= ~17 searches/min across 7 sources)
@@ -41,7 +43,14 @@ export async function GET(req: Request, ctx: { params: Promise<{ source: string 
   const result = await flight(key, async () => {
     const started = Date.now();
     try {
-      const json = await adapter.fetch(q, { pin, city }, AbortSignal.timeout(TIMEOUT_MS));
+      let json: unknown;
+      try {
+        json = await adapter.fetch(q, { pin, city }, AbortSignal.timeout(TIMEOUT_MS));
+      } catch (e) {
+        // One quick retry for transient failures (timeouts, resets, 5xx). Blocks and bad requests (4xx) are not retried.
+        if (e instanceof Error && /^HTTP 4\d\d/.test(e.message)) throw e;
+        json = await adapter.fetch(q, { pin, city }, AbortSignal.timeout(RETRY_TIMEOUT_MS));
+      }
       const listings = adapter.parse(json, q);
       const r: SourceResult = { source: adapter.id, ok: true, listings, tookMs: Date.now() - started, fetchedAt: new Date().toISOString() };
       cache.set(key, r);
@@ -49,7 +58,7 @@ export async function GET(req: Request, ctx: { params: Promise<{ source: string 
     } catch (e) {
       const msg = e instanceof Error ? (e.name === 'TimeoutError' ? 'Timed out' : e.message) : String(e);
       const r: SourceResult = { source: adapter.id, ok: false, listings: [], error: msg, tookMs: Date.now() - started, fetchedAt: new Date().toISOString() };
-      cache.set(key, r, 30_000); // brief negative cache so a broken source isn't hammered
+      cache.set(key, r, 15_000); // brief negative cache so a broken source isn't hammered
       return r;
     }
   });
