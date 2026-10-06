@@ -71,12 +71,12 @@ export function Header() {
         <div className={cx('hidden min-w-0 flex-1 md:block', pathname === '/' && 'md:invisible')}>
           {pathname !== '/' && <Suspense><SearchBox size="sm" /></Suspense>}
         </div>
-        <div className="ml-auto flex items-center gap-1 md:ml-0">
+        <div className="ml-auto flex min-w-0 items-center gap-0.5 sm:gap-1 md:ml-0">
           <button type="button" onClick={() => dlg.current?.open()} className="flex h-9 min-w-0 items-center gap-1 rounded-lg px-2 text-[13px] font-semibold text-ink-2 hover:bg-surface-2 md:hidden" aria-label="Change location">
-            <Icon name="pin" className="size-4 text-brand" /><span className="max-w-[5.5rem] truncate whitespace-nowrap">{location?.city ?? 'Location'}</span>
+            <Icon name="pin" className="size-4 text-brand" /><span className="max-w-[4.5rem] truncate whitespace-nowrap min-[400px]:max-w-[5.5rem]">{location?.city ?? 'Location'}</span>
           </button>
           <ThemeSwitch />
-          <Link href="/cart" className="relative flex h-10 items-center gap-2 rounded-lg px-3 text-sm font-semibold text-ink-2 transition hover:bg-surface-2" aria-label={`Cart, ${items.length} items`}>
+          <Link href="/cart" className="relative flex h-10 shrink-0 items-center gap-2 rounded-lg px-2 text-sm sm:px-3 font-semibold text-ink-2 transition hover:bg-surface-2" aria-label={`Cart, ${items.length} items`}>
             <Icon name="cart" className="size-5" />
             <span className="hidden sm:inline">Cart</span>
             {items.length > 0 && <span className="num grid min-w-[18px] place-items-center rounded-full bg-brand px-1 text-[11px] font-bold leading-[18px] text-on-brand max-sm:absolute max-sm:left-6 max-sm:top-1">{items.length}</span>}
