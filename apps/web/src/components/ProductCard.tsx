@@ -102,13 +102,13 @@ export function ProductCard({ group, expanded = false, cheaperSubs = 0, onShowSu
 function OfferRow({ offer: o, lowest }: { offer: Listing; lowest: boolean }) {
   const d = discountPct(o);
   return (
-    <tr className={cx('max-sm:grid max-sm:grid-cols-[1fr_auto] max-sm:items-center max-sm:gap-x-3 max-sm:px-4 max-sm:py-2.5', lowest && 'bg-ok-soft/60 dark:bg-ok-soft', !o.inStock && 'text-ink-4')}>
-      <td className="sm:px-5 sm:py-3">
-        <div className="flex items-center gap-2.5">
+    <tr className={cx('max-sm:grid max-sm:grid-cols-[minmax(0,1fr)_auto] max-sm:items-center max-sm:gap-x-3 max-sm:px-4 max-sm:py-2.5', lowest && 'bg-ok-soft/60 dark:bg-ok-soft', !o.inStock && 'text-ink-4')}>
+      <td className="min-w-0 sm:px-5 sm:py-3">
+        <div className="flex min-w-0 items-center gap-2.5">
           <PharmacyLogo id={o.source} size={28} />
           <div className="min-w-0">
             <p className="flex items-center gap-2 font-medium text-ink">{SOURCE_BY_ID[o.source].name}{lowest && <Badge tone="ok" className="max-sm:hidden">Lowest</Badge>}</p>
-            <p className="max-w-[16rem] truncate text-xs text-ink-3" title={o.name}>{!o.inStock ? 'Out of stock' : o.name}</p>
+            <p className="truncate text-xs text-ink-3 sm:max-w-[16rem]" title={o.name}>{!o.inStock ? 'Out of stock' : o.name}</p>
           </div>
         </div>
       </td>
@@ -120,7 +120,7 @@ function OfferRow({ offer: o, lowest }: { offer: Listing; lowest: boolean }) {
       <td className="num text-right text-[13px] text-ink-2 max-sm:hidden sm:px-3">{perUnitText(o) ?? '—'}</td>
       <td className="text-[13px] text-ink-3 max-sm:col-start-1 max-sm:row-start-2 max-sm:text-xs sm:px-3">{o.eta ? <span className="inline-flex items-center gap-1"><Icon name="truck" className="size-3.5" />{o.eta}</span> : <span className="max-sm:hidden">—</span>}</td>
       <td className="text-right max-sm:col-start-2 max-sm:row-start-2 sm:px-5">
-        <a href={o.url} target="_blank" rel="noopener noreferrer nofollow" className={cx('inline-flex h-8 items-center gap-1 rounded-lg px-3 text-[13px] font-semibold transition', lowest ? 'bg-brand text-on-brand hover:bg-brand-strong' : 'border border-line-2 text-ink-2 hover:bg-surface-2')}>
+        <a href={o.url} target="_blank" rel="noopener noreferrer nofollow" className={cx('inline-flex h-8 items-center gap-1 whitespace-nowrap rounded-lg px-3 text-[13px] font-semibold transition', lowest ? 'bg-brand text-on-brand hover:bg-brand-strong' : 'border border-line-2 text-ink-2 hover:bg-surface-2')}>
           Buy <Icon name="external" className="size-3.5" /><span className="sr-only"> at {SOURCE_BY_ID[o.source].name}</span>
         </a>
       </td>
