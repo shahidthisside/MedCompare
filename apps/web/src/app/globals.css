@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Light: clean clinical white + medical blue */
+  --color-bg: #f5f7fa;
+  --color-surface: #ffffff;
+  --color-surface-2: #f2f4f7;
+  --color-line: #e4e7ec;
+  --color-line-2: #d0d5dd;
+  --color-ink: #101828;
+  --color-ink-2: #344054;
+  --color-ink-3: #667085;
+  --color-ink-4: #98a2b3;
+
+  --color-brand: #1570ef;
+  --color-brand-strong: #175cd3;
+  --color-brand-soft: #eff8ff;
+  --color-brand-line: #b2ddff;
+  --color-on-brand: #ffffff;
+
+  --color-ok: #067647;
+  --color-ok-soft: #ecfdf3;
+  --color-ok-line: #abefc6;
+  --color-warn: #b54708;
+  --color-warn-soft: #fffaeb;
+  --color-bad: #b42318;
+  --color-bad-soft: #fef3f2;
+
+  --shadow-card: 0 1px 2px rgb(16 24 40 / 0.05);
+  --shadow-pop: 0 12px 24px -6px rgb(16 24 40 / 0.12), 0 4px 8px -4px rgb(16 24 40 / 0.06);
+}
+
+.dark {
+  /* Dark: neutral graphite, same brand blue as light, soft accents */
+  --color-bg: #0f1115;
+  --color-surface: #171a1f;
+  --color-surface-2: #1f2329;
+  --color-line: #2a2e35;
+  --color-line-2: #3a3f48;
+  --color-ink: #ececee;
+  --color-ink-2: #c1c4ca;
+  --color-ink-3: #8d929b;
+  --color-ink-4: #646a74;
+  --color-brand: #2e90fa;
+  --color-brand-strong: #53b1fd;
+  --color-brand-soft: #132235;
+  --color-brand-line: #1f3a5c;
+  --color-on-brand: #ffffff;
+  --color-ok: #4fc98a;
+  --color-ok-soft: #10231a;
+  --color-ok-line: #1c3d2c;
+  --color-warn: #f0b04f;
+  --color-warn-soft: #2a2113;
+  --color-bad: #f2837a;
+  --color-bad-soft: #2b1816;
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-pop: 0 16px 32px -8px rgb(0 0 0 / 0.6), 0 0 0 1px rgb(255 255 255 / 0.04);
+  color-scheme: dark;
+}
+
+@keyframes shimmer { from { background-position: -600px 0; } to { background-position: 600px 0; } }
+
+@layer base {
+  html { -webkit-font-smoothing: antialiased; }
+  body { @apply bg-bg text-ink font-sans; overflow-x: clip; font-feature-settings: "cv11", "ss01"; }
+  ::selection { background: var(--color-brand-soft); color: var(--color-ink); }
+  :focus-visible { outline: 2px solid var(--color-brand); outline-offset: 2px; border-radius: 6px; }
+  dialog::backdrop { background: rgb(16 24 40 / 0.5); }
+  html:has(dialog[open]) { overflow: hidden; }
+  dialog.drawer[open] { animation: drawer-in 0.2s ease-out; }
+  @keyframes drawer-in { from { transform: translateX(24px); opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { dialog.drawer[open] { animation: none; } }
+}
+
+@layer utilities {
+  .num { font-variant-numeric: tabular-nums; }
+  .skeleton {
+    background: linear-gradient(90deg, var(--color-surface-2) 0, var(--color-line) 120px, var(--color-surface-2) 240px);
+    background-size: 1200px 100%;
+    animation: shimmer 1.4s linear infinite;
+  }
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
