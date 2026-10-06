@@ -41,7 +41,7 @@ export default function Home() {
             Live prices for your PIN code, compared per tablet, with cheaper brands of the same salt. Free, with no sign-up.
           </p>
           <div className="mx-auto mt-8 max-w-3xl text-left">
-            <Suspense><SearchBox size="lg" autoFocus /></Suspense>
+            <Suspense><SearchBox size="lg" /></Suspense>
           </div>
           <div className="mt-5 flex flex-wrap items-center justify-center gap-2 text-sm">
             <span className="text-ink-3">Popular searches:</span>
