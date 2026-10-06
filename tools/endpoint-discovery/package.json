@@ -1,6 +1,8 @@
 {
   "name": "medcompare-endpoint-discovery",
   "private": true,
+  "license": "UNLICENSED",
+  "author": "Shahid Ansari <heyshahid786@gmail.com>",
   "type": "module",
   "description": "Educational tool: finds the public JSON search endpoints pharmacy websites call, like Chrome DevTools > Network.",
   "scripts": {

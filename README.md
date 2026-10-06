@@ -11,6 +11,7 @@ Search once, see every pharmacy's price side by side, compare fairly per tablet,
 ![TypeScript](https://img.shields.io/badge/TypeScript-6-3178c6?logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?logo=tailwindcss&logoColor=white)
 ![Tests](https://img.shields.io/badge/tests-87%20passing-2ea44f)
+![License](https://img.shields.io/badge/license-All%20rights%20reserved-red)
 
 ![MedCompare home page](docs/screenshots/home.png)
 
@@ -29,6 +30,7 @@ Search once, see every pharmacy's price side by side, compare fairly per tablet,
 - [Adding or fixing a pharmacy](#adding-or-fixing-a-pharmacy)
 - [Deployment](#deployment)
 - [Disclaimer](#disclaimer)
+- [License](#license)
 
 ## Features
 
@@ -71,6 +73,8 @@ Search once, see every pharmacy's price side by side, compare fairly per tablet,
 These are the pharmacies' own web APIs, called the same way their websites call them for a logged-out visitor. MedCompare does not solve CAPTCHAs, forge signed tokens, reuse logged-in sessions or bypass bot protection.
 
 ## Getting started
+
+> These instructions are for the author and for people with written permission. See [License](#license).
 
 **Requirements:** Node.js 22 or newer (tested on Node 24) and npm.
 
@@ -175,3 +179,11 @@ MedCompare is a standard Next.js app and runs on any Node.js 22+ host (`npm run 
 - Prices are what each pharmacy shows a logged-out visitor and may change at checkout (coupons, memberships, delivery fees).
 - Pharmacy APIs are private and can change without notice; `npm run probe` shows which ones are affected.
 - Pharmacy names and logos belong to their respective owners. MedCompare is not affiliated with any of them.
+
+## License
+
+**Copyright © 2026 Shahid Ansari. All rights reserved.**
+
+MedCompare is **not open source**. The code is public for viewing only. Without written permission you may not copy, modify, rebrand, redistribute, deploy or present any part of it as your own, and you may not use it to train or feed AI models. Forks give no extra rights. See [LICENSE](LICENSE) for the full terms.
+
+To ask for permission, contact [heyshahid786@gmail.com](mailto:heyshahid786@gmail.com).

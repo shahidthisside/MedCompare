@@ -1,0 +1,89 @@
+MedCompare — Proprietary Licence (All Rights Reserved)
+
+Copyright (c) 2026 Shahid Ansari (GitHub: shahidthisside, heyshahid786@gmail.com).
+All rights reserved.
+
+This repository and everything in it — including all source code, scripts,
+tools, tests, fixtures, documentation, designs, user interface, text, images,
+screenshots, and the name "MedCompare" as used for this project (together, the
+"Software") — is the exclusive property of the copyright holder and is
+protected by the copyright laws of India (Copyright Act, 1957), international
+treaties (including the Berne Convention), and other applicable laws.
+
+The Software is NOT open source. It is published for viewing only. No licence
+or right is granted to you except the limited right in Section 1.
+
+1. PERMITTED USE
+
+   You may view the Software on GitHub through GitHub's website, as permitted
+   by GitHub's Terms of Service. Nothing else is permitted without prior
+   written permission from the copyright holder.
+
+2. PROHIBITED USE
+
+   Without prior written permission from the copyright holder, you may not, in
+   whole or in part, directly or indirectly:
+
+   a. copy, download for reuse, clone for reuse, reproduce, or store the
+      Software, except as automatically done by a web browser to display it;
+   b. modify, adapt, translate, refactor, rename, rebrand, or create
+      derivative works based on the Software;
+   c. distribute, publish, sublicense, sell, rent, lend, or otherwise make the
+      Software available to anyone;
+   d. deploy, host, run, or operate the Software, or any derivative of it, as a
+      website, app, service, API, or product, whether commercial or free;
+   e. present the Software, or any part or derivative of it, as your own work,
+      including by changing the project name, branding, author, or credits;
+   f. copy or reuse any code snippet, function, component, adapter, parsing
+      logic, matching logic, design, layout, or documentation from the
+      Software in any other project;
+   g. remove, alter, or obscure this licence or any copyright notice.
+
+3. ARTIFICIAL INTELLIGENCE AND DATA MINING
+
+   Without prior written permission from the copyright holder, you may not:
+
+   a. use the Software, in whole or in part, to train, fine-tune, evaluate,
+      benchmark, or improve any artificial-intelligence or machine-learning
+      model, including large language models and code-generation models;
+   b. include the Software in any dataset, corpus, or index used for those
+      purposes;
+   c. use any AI tool, coding assistant, or automated system to copy,
+      reproduce, paraphrase, translate, or re-implement the Software or any
+      substantial part of it;
+   d. perform text and data mining on the Software.
+
+   The copyright holder expressly reserves all rights for text and data mining
+   and AI training, including under Article 4(3) of EU Directive 2019/790.
+
+4. FORKS
+
+   Any fork created on GitHub exists only because GitHub's Terms of Service
+   allow it. A fork grants no right to use, modify, deploy, or distribute the
+   Software beyond viewing. Every restriction in this licence applies to forks.
+
+5. THIRD-PARTY MATERIAL
+
+   Third-party open-source packages used by the Software remain under their
+   own licences. Pharmacy names and logos belong to their respective owners and
+   are shown only to identify each pharmacy.
+
+6. ENFORCEMENT
+
+   Any use not expressly permitted by this licence is copyright infringement.
+   The copyright holder may take any action available by law, including DMCA
+   takedown notices, injunctions, and claims for damages and legal costs.
+   Any unauthorised use immediately ends any permission you may have had.
+
+7. NO WARRANTY
+
+   The Software is provided "as is", without warranty of any kind. In no event
+   shall the copyright holder be liable for any claim, damages, or other
+   liability arising from the Software or its use.
+
+8. PERMISSION REQUESTS
+
+   To ask for permission to use any part of the Software, contact the
+   copyright holder at heyshahid786@gmail.com or via
+   https://github.com/shahidthisside. Permission is valid only if given in
+   writing by the copyright holder.

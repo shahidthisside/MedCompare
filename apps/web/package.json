@@ -2,6 +2,8 @@
   "name": "@medcompare/web",
   "version": "0.1.0",
   "private": true,
+  "license": "UNLICENSED",
+  "author": "Shahid Ansari <heyshahid786@gmail.com>",
   "type": "module",
   "scripts": {
     "dev": "next dev",
