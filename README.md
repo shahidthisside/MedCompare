@@ -6,12 +6,15 @@
 
 Search once, see every pharmacy's price side by side, compare fairly per tablet, and find cheaper brands with the same composition.
 
+### [🌐 Live website: mymedcompare.vercel.app](https://mymedcompare.vercel.app)
+
 ![Next.js](https://img.shields.io/badge/Next.js-16-000?logo=nextdotjs)
 ![React](https://img.shields.io/badge/React-19-149eca?logo=react)
 ![TypeScript](https://img.shields.io/badge/TypeScript-6-3178c6?logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?logo=tailwindcss&logoColor=white)
 ![Tests](https://img.shields.io/badge/tests-87%20passing-2ea44f)
 ![License](https://img.shields.io/badge/license-All%20rights%20reserved-red)
+[![Website](https://img.shields.io/badge/website-mymedcompare.vercel.app-1570ef?logo=vercel)](https://mymedcompare.vercel.app)
 
 ![MedCompare home page](docs/screenshots/home.png)
 
@@ -166,6 +169,8 @@ npm test
 Research notes for each source are in [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md).
 
 ## Deployment
+
+The live site, **[mymedcompare.vercel.app](https://mymedcompare.vercel.app)**, runs on Vercel with server functions in Mumbai (`bom1`, see `apps/web/vercel.json`). Every push to `main` deploys automatically; other branches get preview URLs.
 
 MedCompare is a standard Next.js app and runs on any Node.js 22+ host (`npm run build && npm start`). Things to know:
 
