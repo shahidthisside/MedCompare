@@ -1,0 +1,20 @@
+# Dependencies and build output
+node_modules/
+.next/
+out/
+dist/
+*.tsbuildinfo
+next-env.d.ts
+
+# Environment
+.env*
+!.env.example
+
+# Endpoint-discovery captures (may contain tokens)
+tools/endpoint-discovery/output/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+*.log
