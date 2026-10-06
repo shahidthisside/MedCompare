@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { SOURCES } from '@/lib/sources/meta';
+import { siteSearchUrl, SOURCES } from '@/lib/sources/meta';
 import type { SourceId, UserLocation } from '@/lib/types';
 import type { SourceState } from '@/lib/useLiveSearch';
 import { cx, Icon, PharmacyLogo } from './ui';
@@ -21,7 +21,8 @@ export function ago(iso: string, now: number): string {
 }
 
 /** Location + live progress across pharmacies. */
-export function SourceStatus({ states, pending, location, onRefresh, onChangeLocation }: {
+export function SourceStatus({ query, states, pending, location, onRefresh, onChangeLocation }: {
+  query: string;
   states: Record<SourceId, SourceState>;
   pending: number;
   location: UserLocation;
@@ -56,11 +57,23 @@ export function SourceStatus({ states, pending, location, onRefresh, onChangeLoc
           const st = states[s.id];
           const r = st.status === 'done' ? st.result : undefined;
           const n = r?.listings.length ?? 0;
+          if (r && !r.ok) {
+            return (
+              <li key={s.id} className="shrink-0">
+                <a href={siteSearchUrl(s.id, query)} target="_blank" rel="noopener noreferrer nofollow" title={`Couldn't load ${s.name} here (${r.error}). Open its search in a new tab.`}
+                  className="flex items-center gap-1.5 rounded-md px-2 py-1 text-[12.5px] text-ink-3 hover:bg-surface-2 hover:text-ink">
+                  <PharmacyLogo id={s.id} size={18} className="opacity-60" />
+                  {s.short}
+                  <span className="inline-flex items-center gap-0.5 text-[11.5px] font-semibold text-brand">check on site <Icon name="external" className="size-3" /></span>
+                </a>
+              </li>
+            );
+          }
           return (
-            <li key={s.id} title={r && !r.ok ? `Unavailable: ${r.error}` : undefined} className={cx('flex shrink-0 items-center gap-1.5 rounded-md px-2 py-1 text-[12.5px]', r?.ok && n ? 'text-ink-2' : 'text-ink-4')}>
-              <PharmacyLogo id={s.id} size={18} className={cx(!r && 'opacity-40', r && (!r.ok || !n) && 'opacity-40 grayscale')} />
+            <li key={s.id} className={cx('flex shrink-0 items-center gap-1.5 rounded-md px-2 py-1 text-[12.5px]', n ? 'text-ink-2' : 'text-ink-4')}>
+              <PharmacyLogo id={s.id} size={18} className={cx(!r && 'opacity-40', r && !n && 'opacity-40 grayscale')} />
               {s.short}
-              {!r ? <span className="size-3 animate-spin rounded-full border-[1.5px] border-line-2 border-t-brand" /> : r.ok ? (n ? <Icon name="check" className="size-3.5 text-ok" /> : <span className="text-[11.5px]">no match</span>) : <span className="text-[11.5px] text-bad">unavailable</span>}
+              {!r ? <span className="size-3 animate-spin rounded-full border-[1.5px] border-line-2 border-t-brand" /> : n ? <Icon name="check" className="size-3.5 text-ok" /> : <span className="text-[11.5px]">no match</span>}
             </li>
           );
         })}

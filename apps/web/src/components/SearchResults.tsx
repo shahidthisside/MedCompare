@@ -64,7 +64,7 @@ export function SearchResults({ query }: { query: string }) {
         <p className="num text-sm text-ink-3" aria-live="polite">{visible.length} products from {SOURCES_ANSWERED(states)} pharmacies</p>
       </div>
 
-      <div className="mt-4">{location && <SourceStatus states={states} pending={pending} location={location} onRefresh={refresh} onChangeLocation={openLocation} />}</div>
+      <div className="mt-4">{location && <SourceStatus query={query} states={states} pending={pending} location={location} onRefresh={refresh} onChangeLocation={openLocation} />}</div>
 
       <div className="mt-5 grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
         <div className="min-w-0">
