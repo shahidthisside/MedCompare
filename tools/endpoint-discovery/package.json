@@ -1,0 +1,12 @@
+{
+  "name": "medcompare-endpoint-discovery",
+  "private": true,
+  "type": "module",
+  "description": "Educational tool: finds the public JSON search endpoints pharmacy websites call, like Chrome DevTools > Network.",
+  "scripts": {
+    "discover": "node discover.mjs"
+  },
+  "dependencies": {
+    "playwright-core": "1.63.0"
+  }
+}
